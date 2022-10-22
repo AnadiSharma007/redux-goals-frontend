@@ -4,7 +4,7 @@ import GoalsTable from "../components/goalstable";
 import { Button, FormLabel, Input } from "@chakra-ui/react";
 import {reset, fetchAllPosts, createAPost} from '../features/post/postSlice'
 import { useDispatch, useSelector } from "react-redux";
-import Layout from "../components/layout";
+import Layout from "../components/shared/layout";
 
 const Home = () => {
   const navigate = useNavigate();

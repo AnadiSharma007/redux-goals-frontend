@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { reset, logout } from '../features/user/userSlice'
+import { reset, logout } from '../../features/user/userSlice'
 import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
 
     const dispatch = useDispatch()
     const {user} = useSelector((state) => state.user)
-    const navigate = useNavigate()
 
     const onButtonClick = () => {
         try {

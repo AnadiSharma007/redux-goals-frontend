@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {FormLabel, Input} from '@chakra-ui/react'
+import FormRow from '../components/shared/formrow';
 import { useNavigate } from 'react-router-dom';
 import { signin, reset } from '../features/user/userSlice';
 import {useDispatch, useSelector} from 'react-redux'
@@ -66,14 +66,8 @@ const Signin = () => {
       )}
       <h1 className="font-bold text-3xl">Sign In</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
-        <div>
-          <FormLabel>Email</FormLabel>
-          <Input placeholder="Email" name="email" onChange={handleChange} />
-        </div>
-        <div>
-          <FormLabel>Password</FormLabel>
-          <Input placeholder="Password" name="password" onChange={handleChange}/>
-        </div>
+        <FormRow type="email" name="email" value={formData.email} handleChange={handleChange} />
+        <FormRow type="password" name="password" value={formData.password} handleChange={handleChange} />
         <div className="flex justify-center mt-10">
           <button
             type="submit"

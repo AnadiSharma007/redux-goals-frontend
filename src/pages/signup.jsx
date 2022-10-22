@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import FormRow from "../components/shared/formrow";
 import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -64,44 +65,11 @@ const Signup = () => {
         {error && <div className="text-red-500">{error}</div>}
         <h1 className="font-bold text-3xl">Sign Up</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-          <div className="flex justify-between gap-5">
-            <div className="flex flex-col">
-              <FormLabel>First name</FormLabel>
-              <Input
-                placeholder="First name"
-                name="firstname"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex flex-col">
-              <FormLabel>Last Name</FormLabel>
-              <Input
-                placeholder="Last name"
-                name="lastname"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div>
-            <FormLabel>Email</FormLabel>
-            <Input placeholder="Email" name="email" onChange={handleChange} />
-          </div>
-          <div>
-            <FormLabel>Password</FormLabel>
-            <Input
-              placeholder="Password"
-              name="password"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <FormLabel>Confirm Password</FormLabel>
-            <Input
-              placeholder="Confirm Password"
-              name="confirmPassword"
-              onChange={handleChange}
-            />
-          </div>
+          <FormRow type="text" name="firstname" value={formData.firstname} handleChange={handleChange}/>
+          <FormRow type="text" name="lastname" value={formData.lastname} handleChange={handleChange}/>
+          <FormRow type="email" name="email" value={formData.email} handleChange={handleChange}/>
+          <FormRow type="password" name="password" value={formData.password} handleChange={handleChange}/>
+          <FormRow type="password" name="confirmPassword" value={formData.confirmPassword} handleChange={handleChange}/>
           <div className="flex justify-center mt-10">
             <button
               type="submit"
